@@ -31,6 +31,7 @@ public class UserResource {
     }
 
     @POST
+    @Path("/create")
     public void createUser(@RequestBody UserAdditionDTO userAdditionDTO) {
         User user = userAdditionDTO.createUserFromDTO();
         user.setPassword(passwordService.encodePassword(user.getPassword()));
@@ -38,7 +39,7 @@ public class UserResource {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     public void deleteUser(@PathParam("id") String id) {
         userService.deleteUser(id);
     }
