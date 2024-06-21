@@ -24,6 +24,12 @@ public class UserResource {
         return userService.findById(id);
     }
 
+    @GET
+    @Path("/name/{name}")
+    public User getUserByName(@PathParam("name") String name) {
+        return userService.findByName(name);
+    }
+
     @POST
     public void createUser(@RequestBody UserAdditionDTO userAdditionDTO) {
         User user = userAdditionDTO.createUserFromDTO();

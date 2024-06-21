@@ -19,6 +19,10 @@ public class UserService {
         return userRepository.findById(new ObjectId(id));
     }
 
+    public User findByName(String name) {
+        return userRepository.find("username", name).list().getFirst();
+    }
+
     public void deleteUser(String id) {
         userRepository.deleteById(new ObjectId(id));
     }
