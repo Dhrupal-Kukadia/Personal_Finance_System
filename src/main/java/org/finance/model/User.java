@@ -1,20 +1,21 @@
 package org.finance.model;
 
 import io.quarkus.mongodb.panache.common.MongoEntity;
+import org.bson.types.ObjectId;
 
 @MongoEntity(collection = "user")
 public class User {
-    private String id;
+    private ObjectId id;
     private String username;
     private String password;
     private String email;
     private double budget;
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

@@ -1,21 +1,22 @@
 package org.finance.model;
 
 import io.quarkus.mongodb.panache.common.MongoEntity;
+import org.bson.types.ObjectId;
 
 @MongoEntity(collection = "transaction")
 public class Transaction {
-    private String id;
+    private ObjectId id;
     private String userId;
     private Long timestamp;
     private double amount;
     private Action action;
     private String category;
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
