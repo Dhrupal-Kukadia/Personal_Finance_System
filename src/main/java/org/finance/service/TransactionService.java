@@ -17,8 +17,8 @@ public class TransactionService {
         transactionRepository.persist(transaction);
     }
 
-    public List<Transaction> findAll() {
-        return transactionRepository.listAll();
+    public List<Transaction> findAll(String userId) {
+        return transactionRepository.find("userId", userId).list();
     }
 
     public Transaction findById(String id) {

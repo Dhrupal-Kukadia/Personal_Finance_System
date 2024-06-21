@@ -1,23 +1,12 @@
-package org.finance.model;
+package org.finance.dto;
 
-import io.quarkus.mongodb.panache.common.MongoEntity;
-import org.bson.types.ObjectId;
+import org.finance.model.User;
 
-@MongoEntity(collection = "user")
-public class User {
-    private ObjectId id;
+public class UserAdditionDTO {
     private String username;
     private String password;
     private String email;
-    private double budget = 0;
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
+    private double budget;
 
     public String getUsername() {
         return username;
@@ -31,6 +20,10 @@ public class User {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -39,15 +32,20 @@ public class User {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public double getBudget() {
         return budget;
     }
 
     public void setBudget(double budget) {
         this.budget = budget;
+    }
+
+    public User createUserFromDTO() {
+        User user = new User();
+        user.setUsername(this.username);
+        user.setPassword(this.password);
+        user.setEmail(this.email);
+        user.setBudget(this.budget);
+        return user;
     }
 }

@@ -18,4 +18,8 @@ public class UserService {
     public User findById(String id) {
         return userRepository.findById(new ObjectId(id));
     }
+
+    public void deleteUser(String id) {
+        userRepository.deleteById(new ObjectId(id));
+    }
 }
